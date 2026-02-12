@@ -1,6 +1,6 @@
 ﻿namespace VH_Burguer.DTOs
 {
-    public class CriarUsuarioDTO
+    public class CriarUsuarioDto
     {
         public string Nome { get; set; } = null!;
 
