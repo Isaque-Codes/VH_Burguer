@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using VH_Burguer.DTOs;
+using VH_Burguer.DTOs.UsuarioDTO;
 using VH_Burguer.Exceptions;
 using VHBurguer.Applications.Services;
 
