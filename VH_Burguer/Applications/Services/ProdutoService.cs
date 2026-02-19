@@ -4,6 +4,7 @@ using VH_Burguer.Exceptions;
 using VH_Burguer.Interfaces;
 using VHBurguer.Applications.Conversoes;
 using VHBurguer.Applications.Regras;
+using VHBurguer.DTOs.ProdutoDto;
 
 namespace VHBurguer.Applications.Services
 {
