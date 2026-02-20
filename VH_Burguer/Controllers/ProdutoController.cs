@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VH_Burguer.DTOs.ProdutoDto;
 using VH_Burguer.Exceptions;
 using VHBurguer.Applications.Services;
+using VHBurguer.DTOs.ProdutoDto;
 
 namespace VHBurguer.Controllers
 {
@@ -74,5 +76,59 @@ namespace VHBurguer.Controllers
             }
         }
 
+        [HttpPost]
+        // Indica que recebe dados no formato multipart/form-data
+        [Consumes("multipart/form-data")] // Necessário para enviar arquivos
+
+        [Authorize] // Exige login para adicionar produtos
+
+        public ActionResult Adicionar([FromForm] CriarProdutoDto produtoDto)
+        {
+            try
+            {
+                int usuarioId = ObterUsuarioIdLogado();
+
+                _service.Adicionar(produtoDto, usuarioId);
+
+                return StatusCode(201);
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        [Consumes("multipart/form-data")]
+        [Authorize]
+
+        public ActionResult Atualizar(int id, [FromForm] AtualizarProdutoDto produtoDto)
+        {
+            try
+            {
+                _service.Atualizar(id, produtoDto);
+                return NoContent();
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+
+        public ActionResult Remover(int id)
+        {
+            try
+            {
+                _service.Remover(id);
+                return NoContent();
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
