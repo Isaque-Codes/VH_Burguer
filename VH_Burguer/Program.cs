@@ -1,13 +1,14 @@
-using Microsoft.EntityFrameworkCore;
-using VH_Burguer.Contexts;
-using VH_Burguer.Interfaces;
-using VHBurguer.Applications.Services;
-using VH_Burguer.Repositories;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using VH_Burguer.Applications.Autenticacao;
 using VH_Burguer.Applications.Services;
+using VH_Burguer.Contexts;
+using VH_Burguer.Interfaces;
+using VH_Burguer.Repositories;
+using VHBurguer.Applications.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// AUTENTICACAO JWT NO SWAGGER
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Value: Bearer TokenJWT"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
 
 // CONEXÃO COM O BANCO
 builder.Services.AddDbContext<VH_BurguerContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
@@ -32,6 +60,14 @@ builder.Services.AddScoped<ProdutoService>();
 // CATEGORIA
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<CategoriaService>();
+
+// PROMOCAO
+builder.Services.AddScoped<IPromocaoRepository, PromocaoRepository>();
+builder.Services.AddScoped<PromocaoService>();
+
+// LOG ALTERACAO PRODUTO
+builder.Services.AddScoped<ILogAlteracaoProdutoRepository, LogAlteracaoProdutoRepository>();
+builder.Services.AddScoped<LogAlteracaoProdutoService>();
 
 // JWT
 builder.Services.AddScoped<GeradorTokenJwt>();
@@ -102,6 +138,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// AUTHENTICATION: HABILITA AUTENTICAÇÃO DO SWAGGER (CONFIGURADA NA LINHA 22)
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
