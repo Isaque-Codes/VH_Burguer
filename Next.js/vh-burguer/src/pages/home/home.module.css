@@ -1,0 +1,51 @@
+/* SECAO BANNER */
+
+#banner{
+    background-color: var(--fundo-claro);
+
+    display: flex;
+    justify-content: center;
+}
+
+#img_banner{
+    display: flex;
+    justify-content: center;
+}
+
+.container_banner{
+    
+}
+
+#titulo {
+    font-size: 50;
+    color: var(--laranja-destaque);
+    display: flex;
+    justify-content: center;
+}
+
+#botoes_banner {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    height: 50px;
+}
+
+.btn_banner{
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-size: 28;
+    font-weight: 500;
+}
+
+#btn_atendente{
+    background-color: var(--laranja-destaque);
+    color: var(--vinho);
+    
+}
+
+#btn_cardapio{
+    background-color: var(--vinho);
+    color: var(--laranja-destaque);
+}

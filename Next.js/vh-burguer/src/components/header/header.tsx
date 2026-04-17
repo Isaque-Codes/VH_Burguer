@@ -3,8 +3,8 @@ import styles from "./header.module.css";
 const Header = () => {
     return (
         <header id={styles.header}>
-            <div className={`${styles.container} layout_guide`}>
-                <img src="../imgs/Logo_VH_Burguer.svg" alt="Logo do VH Burguer que contém um hamburguer como plano de fundo" id={styles.logo}/>
+            <div id={styles.container} className="Layout_guide">
+                <img src="../imgs/logo_VH_Burguer.svg" alt="Logo do VH Burguer que contém um hamburguer como plano de fundo" id={styles.logo}/>
                 <nav id={styles.nav_menu}>
                     <a href="">Destaques</a>
                     <a href="">Cardápio</a>
