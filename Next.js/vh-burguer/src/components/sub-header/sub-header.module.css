@@ -1,0 +1,23 @@
+.header {
+    background-color: var(--vinho);
+
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#voltar {
+    text-decoration: none;
+    font-size: 30;
+    color: var(--laranja-destaque);
+}
+
+#logo {
+    width: 250px;
+}

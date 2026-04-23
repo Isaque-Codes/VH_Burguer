@@ -3,7 +3,7 @@ import styles from "./footer.module.css";
 const Footer = () => {
     return (
         <footer id={styles.footer_home}>
-            <div id={styles.container} className="Layout_guide">
+            <div id={styles.container} className="layout_guide">
                 <div id={styles.footer_icons}>
                     <img src="../imgs/Logo_footer.svg" alt="Logo do VH Burguer que contém um hamburguer como plano de fundo"
                         className={styles.logo_vhburguer_footer} />

@@ -9,9 +9,10 @@ const Home = () => {
         <>
             <Header />
             <main>
+                {/* SECAO BANNER */}
                 <section id={styles.banner}>
                     <div className={`${styles.container_banner} layout_guide`}>
-                        <h1>Bem-vindo ao VH Burguer</h1>
+                        <h1>Bem-vindo(a) ao VH Burguer</h1>
                         <img src="../imgs/foto_de_hamburgueres.png" alt="Três hamburgueres com carne, queijo, salada e bacon." />
                         <div id={styles.botoes_banner_hamburguer}>
                             <button className={styles.btn_atendimento}> Chamar atendente</button>
@@ -19,6 +20,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                {/* SECAO DESTAQUES */}
                 <section className={styles.destaques} id="destaques">
                     <div className={`${styles.container_destaques} layout_guide`}>
                         <article className={styles.card_destaque_mais_pedidos}>
@@ -37,12 +39,14 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                {/* SECAO CARDAPIO */}
                 <section className={styles.cardapio} id="cardapio">
                     <div className={`${styles.container_cardapio} layout_guide`}>
                         <h2>Cardápio</h2>
                         <ListaProduto />
                     </div>
                 </section>
+                {/* SECAO UNIDADES */}
                 <section className={styles.unidades} id="unidades">
                      <div className={`${styles.container_unidades} layout_guide`}>
                     <div className={styles.texto_unidades}>
