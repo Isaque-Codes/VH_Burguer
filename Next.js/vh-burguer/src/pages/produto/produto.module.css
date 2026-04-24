@@ -1,0 +1,45 @@
+#main {
+background-color: var(--fundo-claro);
+
+    display: flex;
+    justify-content: center;
+}
+
+#article {
+    width: 50%;
+    height: 70%;
+}
+
+#h1 {
+    color: var(--laranja-destaque);
+    margin-bottom: 33px;
+    font-weight: 500;
+    margin: 30px 50% 30px 50%;
+}
+
+.campo_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.campo_form label {
+    font-weight: 500;
+    color: var(--fonte-ecura);
+}
+
+.campo_form input {
+    height: 45px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 0 18px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.10);
+    outline: none;
+    font-size: 16px;
+}
+
+#adc_categ {
+    color: var(--vinho);
+    margin: 15px 0 15px 0;
+}

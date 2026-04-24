@@ -18,7 +18,6 @@ const DetalheProduto = () => {
                             {/* src={produto?.imagemUrl} alt={produto?.nome} /> */}
                         </figure>
 
-
                         <div className={styles.card_detalhes_infos}>
                             <div className={`${styles.card_detalhes_col} ${styles.card_detalhes_col_esq}`}>
                                 <div className={styles.campo}>
