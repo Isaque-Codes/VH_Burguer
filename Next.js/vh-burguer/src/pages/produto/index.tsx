@@ -6,34 +6,41 @@ const Produto = () => {
     return (
         <>
             <SubHeader />
-            <main id={styles.main}>
-                <article id={styles.article}>
-                    <h1 id={styles.h1}>CRIAR PRODUTO</h1>
-                    <form id={styles.formulario}>
+            <main className={styles.main_produto}>
+                <section className={`${styles.section_flex} layout_guide`}>
+                    <h1>Criar produto</h1>
+                    <form className={styles.formulario_produto}>
                         <div className={styles.campo_form}>
-                            <label className={styles.label} htmlFor="produto">Nome do produto</label>
-                            <input type="text" name="produto" placeholder="BBQ Especial" required />
+                            <label htmlFor="">Nome do produto</label>
+                            <input type="text" />
                         </div>
                         <div className={styles.campo_form}>
-                            <label className={styles.label} htmlFor="descricao">Descrição</label>
-                            <input type="text" name="descricao" placeholder="Hamburguer com molho barbecue defumado com cebola caramelizada" required />
+                            <label htmlFor="">Descrição</label>
+                            <textarea></textarea>
                         </div>
                         <div className={styles.campo_form}>
-                            <label className={styles.label} htmlFor="preco">Preço (R$)</label>
-                            <input type="number" step={1.01} name="preco" placeholder="40,00" required />
+                            <label htmlFor="">Preço(R$)</label>
+                            <input type="text" />
                         </div>
                         <div className={styles.campo_form}>
-                            <label className={styles.label} htmlFor="categoria">Categoria</label>
-                            <input type="text" name="categoria" placeholder="Selecione a categoria" required />
+                            <label htmlFor="">Categoria</label>
+                            <select>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+
+                            <a href="">Criar categoria</a>
                         </div>
-                        <a id={styles.adc_categ} href="">Adicionar categoria</a>
                         <div className={styles.campo_form}>
-                            <label className={styles.label} htmlFor="url">URL da imagem</label>
-                            <input type="url" name="url" placeholder="https://unplash.com/pt-br/fotografias/cheseburger..." required />
+                            <label htmlFor="">Imagem do produto</label>
+                            <input
+                                type="file"
+                            />
                         </div>
+                        <button type="submit" id={styles.btn_salvar}>Salvar</button>
                     </form>
-                    <button>Salvar</button>
-                </article>
+                </section>
             </main>
             <Footer />
         </>
