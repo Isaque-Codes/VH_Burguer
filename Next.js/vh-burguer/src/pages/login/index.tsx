@@ -1,18 +1,32 @@
 import { useState } from "react";
 import styles from "./login.module.css";
 import { login } from "../api/authService"
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 const Login = () => {
 
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
 
-    function autenticar(e: React.FormEvent<HTMLFormElement>) {
+    const router = useRouter();
+    const notificacao = (msg: string) => toast.success(msg);
+    const erro = (msg: string) => toast.error(msg);
+
+    async function autenticar(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
         try {
-            login(email, senha);
-            console.log("Tentado")
-        } catch (e: any) {
-            alert(e.message);
+            await login(email, senha);
+            notificacao("Login bem sucedido!")
+
+            // Espera 2 segundos para redirecionar para a login
+            setTimeout(() => {
+                router.push("/home");
+            }, 2000); // 2 segundos
+
+        } catch (error: any) {
+            erro(error.message);
         }
+
     }
     return (
         <>
