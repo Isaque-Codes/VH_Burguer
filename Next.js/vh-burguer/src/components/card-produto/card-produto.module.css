@@ -35,7 +35,8 @@
     font-size: 16px;
     /* padding: 26px 18px; */
     margin: 0;
-    /* altura da linha do texto, ou seja, o espaço vertical entre uma linha e outra.*/
+    /* altura da linha do texto, ou seja, o espaço vertical entre uma linha e outra.
+Pensa nele como o “respiro” do texto */
     line-height: 1.4;
     height: calc(400px - 290px);
     align-content: center;

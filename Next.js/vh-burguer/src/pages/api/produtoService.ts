@@ -5,24 +5,61 @@ type Produto = {
     descricao: string,
     preco: string,
     imagem: File | null,
-    categoriasId: number[]
+    categoriasId: number[],
+    imagemUrl: string
 }
 
-function cadastrarProduto(dados: Produto) {
+export async function cadastrarProduto(dados: Produto) {
     try {
         const formData = new FormData();
 
         formData.append("nome", dados.nome);
         formData.append("descricao", dados.descricao);
         formData.append("preco", dados.preco);
-        if (dados.imagem)
+        if (dados.imagem) {
             formData.append("imagem", dados.imagem);
-        // formData.append("categoriaIds", dados.categoriaIds);
+        }
         dados.categoriasId.forEach((id) => {
-            formData.append("categoriaIds", id.toString())
+            formData.append("categoriaIds", id.toString());
         })
 
-    } catch (e: any) {
-        throw new Error(e.message);
+        await api.post("Produto", formData);
+
+        // console.log("Funcionou!")
+
+    } catch (error: any) {
+        throw new Error(error.response.data);
+    }
+}
+
+export async function listarProduto() {
+    try {
+        const response = await api.get("Produto");
+
+        const produtos = response.data.map((produto: Produto) => ({
+            ...produto,
+            imagemUrl: `${api.defaults.baseURL}${produto.imagemUrl}`
+        }))
+
+        return produtos;
+
+    } catch (error: any) {
+        throw new Error(error.response.data);
+    }
+}
+
+export async function listarPorId(id: number) {
+    try {
+        const response = await api.get("Produto/" + id);
+
+        const produto = {
+            ...response.data,
+            imagemUrl: `${api.defaults.baseURL}${response.data.imagemUrl}`
+        };
+
+        return produto;
+
+    } catch (error: any) {
+        throw new Error(error.response.data)
     }
 }

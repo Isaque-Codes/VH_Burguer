@@ -13,8 +13,8 @@ export async function cadastrarCategoria(nome: string) {
 export async function listarCategoria() {
     try {
         const response = await api.get("Categoria");
-        return response
-    } catch (e: any) {
-        throw new Error(e.response.data);
+        return response;
+    } catch (error: any) {
+        throw new Error(error.response.data);
     }
 }

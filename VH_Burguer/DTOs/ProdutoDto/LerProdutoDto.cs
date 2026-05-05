@@ -14,6 +14,8 @@ namespace VH_Burguer.DTOs.ProdutoDto
 
         public byte[] Imagem { get; set; } = null!;
 
+        public string ImagemUrl { get; set; }
+
         public bool? StatusProduto { get; set; }
 
         // CATEGORIAS

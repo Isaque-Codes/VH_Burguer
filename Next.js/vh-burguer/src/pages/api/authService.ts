@@ -1,11 +1,11 @@
-import secureLocalStorage from "react-secure-storage";
 import { api } from "./api";
+import secureLocalStorage from "react-secure-storage";
 
 export async function login(email: string, senha: string) {
     try {
-        // Requisicao
+        //requisição:
         const response = await api.post("Autenticacao/login", { email, senha });
-        // console.log("Funcionou");
+        // console.log("Deu certo!");
         // console.log(response.data.token);
         const token = response.data.token;
 

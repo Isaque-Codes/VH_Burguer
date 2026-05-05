@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "./login.module.css";
-import { login } from "../api/authService"
-import { toast } from "react-toastify";
-import { useRouter } from "next/router";
+import { login } from "../api/authService";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+
 const Login = () => {
 
     const [email, setEmail] = useState<string>("");
@@ -18,7 +19,7 @@ const Login = () => {
             await login(email, senha);
             notificacao("Login bem sucedido!")
 
-            // Espera 2 segundos para redirecionar para a login
+            //espera 2 segundos para redirecionar para a login
             setTimeout(() => {
                 router.push("/home");
             }, 2000); // 2 segundos
@@ -26,12 +27,13 @@ const Login = () => {
         } catch (error: any) {
             erro(error.message);
         }
-
     }
+
     return (
         <>
+            <ToastContainer />
             <main id={styles.main}>
-                <img src="../imgs/hamburguer_login.png" alt="Imagem de hambúrguer com ingredientes flutuantes verticalmente alinhados." />
+                <img src="../imgs/hamburguer_login.png" alt="Hambúrguer com ingredientes flutuando em camadas sobre fundo escuro." />
                 <div id={styles.campo_login}>
                     <h1>Login</h1>
                     <form id={styles.formulario} onSubmit={autenticar}>
@@ -39,6 +41,7 @@ const Login = () => {
                             <label htmlFor="email">E-mail</label>
                             <input type="text" name="email" placeholder="email@exemplo.com" required
                                 value={email} onChange={(e) => setEmail(e.target.value)} />
+
                         </div>
                         <div className={styles.campo_form}>
                             <label htmlFor="senha">Senha</label>

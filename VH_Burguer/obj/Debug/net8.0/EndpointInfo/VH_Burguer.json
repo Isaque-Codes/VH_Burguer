@@ -1029,6 +1029,10 @@
             "format": "byte",
             "nullable": true
           },
+          "imagemUrl": {
+            "type": "string",
+            "nullable": true
+          },
           "statusProduto": {
             "type": "boolean",
             "nullable": true

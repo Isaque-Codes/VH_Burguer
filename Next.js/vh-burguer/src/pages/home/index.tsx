@@ -1,18 +1,16 @@
-import { Fragment } from "react/jsx-runtime";
-import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
-import styles from "./home.module.css";
+import Header from "@/components/header/header";
+import styles from "./home.module.css"
 import ListaProduto from "@/components/lista-produto/lista-produto";
-
+//ESTRUTURA PADRÃO!
 const Home = () => {
     return (
         <>
             <Header />
             <main>
-                {/* SECAO BANNER */}
                 <section id={styles.banner}>
                     <div className={`${styles.container_banner} layout_guide`}>
-                        <h1>Bem-vindo(a) ao VH Burguer</h1>
+                        <h1>Bem-vindo ao VH Burguer</h1>
                         <img src="../imgs/foto_de_hamburgueres.png" alt="Três hamburgueres com carne, queijo, salada e bacon." />
                         <div id={styles.botoes_banner_hamburguer}>
                             <button className={styles.btn_atendimento}> Chamar atendente</button>
@@ -20,8 +18,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-                {/* SECAO DESTAQUES */}
-                <section className={styles.destaques} id="destaques">
+                <section className={styles.destaques} id="destaques" >
                     <div className={`${styles.container_destaques} layout_guide`}>
                         <article className={styles.card_destaque_mais_pedidos}>
                             <p>Os queridinhos da galera</p>
@@ -39,14 +36,13 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-                {/* SECAO CARDAPIO */}
                 <section className={styles.cardapio} id="cardapio">
                     <div className={`${styles.container_cardapio} layout_guide`}>
                         <h2>Cardápio</h2>
-                        <ListaProduto />
+                        {/* chamar componente da lista */}
+                        <ListaProduto/>
                     </div>
                 </section>
-                {/* SECAO UNIDADES */}
                 <section className={styles.unidades} id="unidades">
                      <div className={`${styles.container_unidades} layout_guide`}>
                     <div className={styles.texto_unidades}>
