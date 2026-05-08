@@ -1,11 +1,11 @@
-import styles from "./header.module.css";
 import Link from "next/link";
+import styles from "./header.module.css";
 
 const Header = () => {
     return (
         <header id={styles.header}>
-            <div id={styles.container} className="layout_guide">
-                <img src="../imgs/logo_VH_Burguer.svg" alt="Logo do VH Burguer que contém um hamburguer como plano de fundo" id={styles.logo}/>
+            <div className={`${styles.container} layout_guide`}>
+                <img src="../imgs/Logo_VH_Burguer.svg" alt="Logo do VH Burguer que contém como plano de fundo um hamburguer" id={styles.logo} />
                 <nav id={styles.nav_menu}>
                     <a href="#destaques">Destaques</a>
                     <a href="#cardapio">Cardápio</a>

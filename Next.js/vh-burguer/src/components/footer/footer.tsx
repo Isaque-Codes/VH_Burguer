@@ -1,24 +1,24 @@
-import styles from "./footer.module.css";
+import styles from "./footer.module.css"
 
 const Footer = () => {
     return (
         <footer id={styles.footer_home}>
-            <div id={styles.container} className="layout_guide">
+            <div className={`${styles.container} layout_guide`}>
                 <div id={styles.footer_icons}>
-                    <img src="../imgs/Logo_footer.svg" alt="Logo do VH Burguer que contém um hamburguer como plano de fundo"
+                    <img src="../imgs/Logo_footer.svg" alt="Logo do VH Burguer que contém como plano de fundo um hamburguer"
                         className={styles.logo_vhburguer_footer} />
                     <nav id={styles.icons}>
                         <a href="">
-                            <img src="../imgs/tiktok.png" alt="Ícone para acessar o Tik Tok do VH Burguer" />
+                            <img src="../imgs/tiktok.png" alt="Logo da rede social Tiktok" />
                         </a>
                         <a href="">
-                            <img src="../imgs/face.png" alt="Ícone para acessar o Facebook do VH Burguer" />
+                            <img src="../imgs/face.png" alt="Logo da rede social Facebook" />
                         </a>
                         <a href="">
-                            <img src="../imgs/insta.png" alt="Ícone para acessar o Instagram do VH Burguer" />
+                            <img src="../imgs/insta.png" alt="Logo da rede social Instagram" />
                         </a>
                         <a href="">
-                            <img src="../imgs/youtube.png" alt="Ícone para acessar o canal do Youtube do VH Burguer" />
+                            <img src="../imgs/youtube.png" alt="Logo do Youtube" />
                         </a>
                     </nav>
                 </div>

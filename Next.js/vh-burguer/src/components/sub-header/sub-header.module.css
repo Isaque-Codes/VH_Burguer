@@ -1,23 +1,33 @@
+/* -----------------------------HEADER--------------------------------- */
+
 .header {
     background-color: var(--vinho);
-
-    height: 10vh;
     display: flex;
     justify-content: center;
+
+    height: 10vh;
 }
 
-#container {
+.container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
-#voltar {
+
+.container a {
     text-decoration: none;
-    font-size: 30;
+    color: var(--laranja-destaque);
+    font-size: var(--fonte-link);
+    font-weight: 600;
+}
+
+.container a:hover {
     color: var(--laranja-destaque);
 }
 
-#logo {
-    width: 250px;
+.logo_vhburguer {
+    width: 150px;
 }
+
+/* -----------------------------FIM HEADER--------------------------------- */

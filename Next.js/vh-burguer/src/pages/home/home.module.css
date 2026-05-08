@@ -77,7 +77,7 @@
 
 
 .container_destaques {
-     display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -195,7 +195,7 @@
 
 /* -----------------------------SECTION UNIDADES--------------------------------- */
 .unidades {
-    background: linear-gradient(#00000080, #00000080),url("../../../public/imgs/unidade.jpeg");
+    background: linear-gradient(#00000080, #00000080), url("../../../public/imgs/unidade.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -243,4 +243,3 @@
 }
 
 /* -----------------------------FIM SECTION UNIDADES--------------------------------- */
-

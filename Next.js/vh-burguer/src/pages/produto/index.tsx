@@ -3,9 +3,12 @@ import SubHeader from "@/components/sub-header/sub-header"
 import styles from "./produto.module.css"
 import { useEffect, useState } from "react";
 import { listarCategoria } from "../api/categoriaService";
-import { cadastrarProduto } from "../api/produtoService";
+import { cadastrarProduto, editarProduto, listarPorId } from "../api/produtoService";
 import { erro, notificacao } from "@/utils/toast";
 import Toast from "@/components/toast/toast";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
+import { verificarAutenticacao } from "@/utils/auth";
 
 interface Categoria {
   categoriaID: number,
@@ -21,6 +24,11 @@ const Produto = () => {
   const [preco, setPreco] = useState<string>("");
   const [imagem, setImagem] = useState<File | null>(null);
   const [categoriasSelecionadas, setcategoriasSelecionadas] = useState<number[]>([]);
+  const [estaAutenticado, setEstaAutenticado] = useState(false);
+
+  const router = useRouter();
+  const id = router.query.id;
+  let telaEditar = id ? true : false;
 
   async function listarCatagoriaEmProduto() {
     const lista = await listarCategoria();
@@ -28,9 +36,19 @@ const Produto = () => {
     console.log(lista.data);
   }
 
-  async function Cadastrar(e: React.FormEvent<HTMLFormElement>) {
+  async function carregarInformacoes() {
+    if (!id) return;
+
+    const produto = await listarPorId(Number(id));
+    setNome(produto.nome);
+    setDescricao(produto.descricao);
+    setPreco(produto.preco);
+    setcategoriasSelecionadas(produto.categoriaIds)
+  }
+
+  async function salvarProduto(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    try{
+    try {
 
       const dados = {
         nome,
@@ -40,29 +58,45 @@ const Produto = () => {
         categoriasId: categoriasSelecionadas
       }
 
-      await cadastrarProduto(dados)
+      // await cadastrarProduto(dados)
 
-      notificacao("Produto cadastrado!");
-
-    }catch(error: any){
+      if (telaEditar) {
+        await editarProduto(Number(id), dados);
+        notificacao("Produto editado!");
+      } else {
+        await cadastrarProduto(dados)
+        notificacao("Produto cadastrado!");
+      }
+    } catch (error: any) {
       erro(error.message);
     }
 
   }
-
   //quando produto for renderizado, a funcao listarCatagoriaEmProduto acontece
   useEffect(() => {
+    if (!verificarAutenticacao()) {
+      router.push("/home")
+    } else {
+      setEstaAutenticado(true);
+    }
+
     listarCatagoriaEmProduto();
+    carregarInformacoes();
   }, [])
+
+  //a tela de produto não será renderizada
+  if (!estaAutenticado) {
+    return null;
+  }
 
   return (
     <>
       <SubHeader />
-      <Toast/>
+      <Toast />
       <main className={styles.main_produto}>
         <section className={`${styles.section_flex} layout_guide`}>
-          <h1>Criar produto</h1>
-          <form className={styles.formulario_produto} onSubmit={Cadastrar}>
+          <h1>{telaEditar ? "Editar produto" : "Criar produto"}</h1>
+          <form className={styles.formulario_produto} onSubmit={salvarProduto}>
             <div className={styles.campo_form}>
               <label htmlFor="">Nome do produto</label>
               <input type="text"
@@ -78,9 +112,12 @@ const Produto = () => {
             </div>
             <div className={styles.campo_form}>
               <label htmlFor="">Categoria</label>
-              <select multiple onChange={(e) => setcategoriasSelecionadas(
-                Array.from(e.target.selectedOptions).map((option) => Number(option.value))
-              )}>
+              <select
+                multiple
+                value={categoriasSelecionadas.map(String)}
+                onChange={(e) => setcategoriasSelecionadas(
+                  Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                )}>
                 {categorias.map((item) => (
                   <option value={item.categoriaID} key={item.categoriaID}>{item.nome}</option>
                 )

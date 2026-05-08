@@ -40,21 +40,21 @@ const Home = () => {
                     <div className={`${styles.container_cardapio} layout_guide`}>
                         <h2>Cardápio</h2>
                         {/* chamar componente da lista */}
-                        <ListaProduto/>
+                        <ListaProduto />
                     </div>
                 </section>
                 <section className={styles.unidades} id="unidades">
-                     <div className={`${styles.container_unidades} layout_guide`}>
-                    <div className={styles.texto_unidades}>
-                        <h2>Unidades</h2>
-                        <ul className={styles.lista_unidades}>
-                            <li>Centro - Av. Aurora, 742</li>
-                            <li>Jardim - Av. das Palmeiras, 1280</li>
-                            <li>Norte - Av. Horizonte, 305</li>
-                            <li>Sul - Av. Nova Esperança, 910</li>
-                        </ul>
+                    <div className={`${styles.container_unidades} layout_guide`}>
+                        <div className={styles.texto_unidades}>
+                            <h2>Unidades</h2>
+                            <ul className={styles.lista_unidades}>
+                                <li>Centro - Av. Aurora, 742</li>
+                                <li>Jardim - Av. das Palmeiras, 1280</li>
+                                <li>Norte - Av. Horizonte, 305</li>
+                                <li>Sul - Av. Nova Esperança, 910</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
                 </section>
             </main>
             <Footer />

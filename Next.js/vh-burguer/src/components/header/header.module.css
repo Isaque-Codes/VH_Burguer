@@ -1,19 +1,17 @@
 #header {
-    background-color: var(--fundo-claro);
-    
     height: 10vh;
+
+    background-color: var(--fundo-claro);
+
     display: flex;
     justify-content: center;
 }
 
-#container {
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
 
-#logo {
-    width: 250px;
 }
 
 #nav_menu {
@@ -31,6 +29,10 @@
 
 #nav_menu a:hover {
     color: var(--laranja-destaque);
+}
+
+#logo {
+    width: 250px;
 }
 
 #btn_icon {
@@ -51,4 +53,5 @@
     #logo {
         width: 200px;
     }
+
 }

@@ -1,4 +1,4 @@
-.card_produto{
+.card_produto {
     width: 280px;
     background: #ffffff;
     border-radius: 18px;
@@ -12,7 +12,7 @@
 }
 
 /* imagem do topo */
-.img_produto{
+.img_produto {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -72,7 +72,7 @@ Pensa nele como o “respiro” do texto */
     margin: 0;
 }
 
-.campo_itens button{
+.campo_itens button {
     background: none;
     border: none;
 }

@@ -64,8 +64,7 @@
               "RelativeToolTip": "DTOs\\ProdutoDto\\LerProdutoDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T11:34:46.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-04T11:34:46.064Z"
             },
             {
               "$type": "Document",
@@ -77,8 +76,7 @@
               "RelativeToolTip": "Contexts\\VH_BurguerContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-30T14:12:05.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-30T14:12:05.862Z"
             }
           ]
         }

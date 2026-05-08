@@ -1,3 +1,4 @@
+/* -----------------------------FOOTER--------------------------------- */
 #footer_home {
     background: var(--vinho);
     display: flex;
@@ -17,36 +18,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 0 30px 0;
 }
 
 .logo_vhburguer_footer {
-    width: 200px;
+    width: 150px;
 
 }
 
 #icons {
     display: flex;
-    gap: 17px;
+    gap: 14px;
 }
 
 #icons img {
-    width: 33px;
-    height: 33px;
+    width: 25px;
+    height: 25px;
 
     display: block;
     cursor: pointer;
 }
 
+/* linha */
 #linha {
     height: 1px;
     width: 100%;
     background: var(--laranja-destaque);
     opacity: .4;
-
-    margin: 0 0 30px 0;
 }
 
+/* copyright */
 #footer_home p {
     margin: 0;
     text-align: center;
@@ -54,3 +54,7 @@
     font-size: var(--fonte-texto);
     font-weight: 500;
 }
+
+
+
+/* -----------------------------FIM FOOTER--------------------------------- */

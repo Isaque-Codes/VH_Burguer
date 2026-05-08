@@ -5,10 +5,11 @@ export async function login(email: string, senha: string) {
     try {
         //requisição:
         const response = await api.post("Autenticacao/login", { email, senha });
-        // console.log("Deu certo!");
+        // console.log("eba deu certo");
         // console.log(response.data.token);
         const token = response.data.token;
 
+        // localStorage.setItem("nomeToken", token);
         secureLocalStorage.setItem("Token", token);
 
     } catch (error: any) {

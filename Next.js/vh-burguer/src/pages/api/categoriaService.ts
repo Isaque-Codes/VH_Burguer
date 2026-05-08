@@ -3,7 +3,7 @@ import { api } from "./api";
 export async function cadastrarCategoria(nome: string) {
     try {
         await api.post("Categoria", { nome });
-        // console.log("Funcionou")
+        // console.log("Funcionou!")
     } catch (error: any) {
         // console.log(error.response.data)
         throw new Error(error.response.data);
